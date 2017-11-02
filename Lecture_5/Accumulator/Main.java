@@ -32,5 +32,33 @@ public class Main {
         accumulatorDivide.accumulate(2);
         int value5 = accumulatorDivide.getValue();
         System.out.println(value5);
+
+
+        // Анонимные классы
+
+        Operation operationAnonimPlus = new Operation() {
+            @Override
+            public int doOperation(int x, int y) {
+                int plus = x + y;
+                return plus;
+            }
+        };
+
+        Accumulator accumulatorAnonimPlus = new Accumulator(7, operationAnonimPlus);
+        accumulatorAnonimPlus.accumulate(2);
+        int value6 = accumulatorAnonimPlus.getValue();
+        System.out.println(value6);
+
+
+        Accumulator accumulatorAnonimMinus = new Accumulator(16, new Operation() {
+            @Override
+            public int doOperation(int x, int y) {
+                return x-y;
+            }
+        });
+        accumulatorAnonimMinus.accumulate(2);
+        int value7 = accumulatorAnonimMinus.getValue();
+        System.out.println(value7);
+
     }
 }
